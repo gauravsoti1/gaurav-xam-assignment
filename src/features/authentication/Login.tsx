@@ -130,6 +130,7 @@ export default function Login() {
                 variant="outlined"
                 fullWidth
                 {...field}
+                autoComplete="off"
               />
             )}
           />
@@ -146,6 +147,7 @@ export default function Login() {
                 type="password"
                 variant="outlined"
                 fullWidth
+                autoComplete="new-password"
                 {...field}
               />
             )}
