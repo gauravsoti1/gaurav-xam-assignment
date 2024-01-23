@@ -1,24 +1,24 @@
-import * as React from 'react';
-import CssBaseline from '@mui/material/CssBaseline';
-import App from './App';
+import * as React from "react";
+import CssBaseline from "@mui/material/CssBaseline";
 import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
   RouterProvider,
-} from 'react-router-dom';
-import UserDetail from './features/users/UserDetail';
-import { Provider } from 'react-redux';
-import reduxStore, { persistor } from './redux/store';
-import { PersistGate } from 'redux-persist/integration/react';
-import RequireAuth from './RequireAuth';
-import { createRoot } from 'react-dom/client';
+} from "react-router-dom";
+import UserDetail from "./pages/UserDetail";
+import { Provider } from "react-redux";
+import reduxStore, { persistor } from "./redux/store";
+import { PersistGate } from "redux-persist/integration/react";
+import RequireAuth from "./components/authentication/RequireAuth";
+import { createRoot } from "react-dom/client";
+import Login from "./pages/Login";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path="/" element={<App />} />
-      <Route path="/login" element={<App />} />
+      <Route path="/" element={<Login />} />
+      <Route path="/login" element={<Login />} />
       <Route
         path="/user/:userName"
         element={
@@ -31,7 +31,7 @@ export const router = createBrowserRouter(
   )
 );
 
-const container = document.getElementById('root') as HTMLElement;
+const container = document.getElementById("root") as HTMLElement;
 const root = createRoot(container);
 
 root.render(

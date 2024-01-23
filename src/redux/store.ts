@@ -1,25 +1,25 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { persistStore, persistReducer } from 'redux-persist';
-import storageSession from 'redux-persist/lib/storage/session';
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { persistStore, persistReducer } from "redux-persist";
+import storageSession from "redux-persist/lib/storage/session";
 import authenticationReducer, {
   AuthenticationStateType,
-} from '../features/authentication/authenticationSlice';
+} from "./authenticationSlice";
 
-import thunk from 'redux-thunk';
-import usersReducer from '../features/users/usersSlice';
-import storage from 'redux-persist/lib/storage';
-import { UserType } from '../data/usersData';
+import thunk from "redux-thunk";
+import usersReducer from "./usersSlice";
+import storage from "redux-persist/lib/storage";
+import { UserType } from "../data/usersData";
 
 export const configAuthenticationPersistance = {
-  key: 'root',
+  key: "root",
   storage: storageSession,
-  blacklist: ['users'],
+  blacklist: ["users"],
 };
 
 export const configRootPersistance = {
-  key: 'root',
+  key: "root",
   storage: storage,
-  blacklist: ['authentication'],
+  blacklist: ["authentication"],
 };
 
 export interface IAppState {
@@ -38,7 +38,7 @@ const rootReducer = combineReducers({
 export const buildStore = () =>
   configureStore({
     reducer: persistReducer(configRootPersistance, rootReducer),
-    devTools: process.env.NODE_ENV !== 'production',
+    devTools: process.env.NODE_ENV !== "production",
     middleware: [thunk],
   });
 

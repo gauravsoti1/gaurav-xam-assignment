@@ -1,14 +1,14 @@
-import React from 'react';
-import { useForm, Controller, SubmitHandler } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import styled from 'styled-components';
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { addUser, selectUsers } from './usersSlice';
-import Container from '@mui/material/Container';
-import LoadingButton from '@mui/lab/LoadingButton';
+import React from "react";
+import { useForm, Controller, SubmitHandler } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import styled from "styled-components";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { addUser, selectUsers } from "../../redux/usersSlice";
+import Container from "@mui/material/Container";
+import LoadingButton from "@mui/lab/LoadingButton";
 
 const AddUserForm = () => {
   const users = useAppSelector(selectUsers);
@@ -18,15 +18,15 @@ const AddUserForm = () => {
         .string()
         .min(5)
         .test(
-          'userName',
-          'Username already exists',
+          "userName",
+          "Username already exists",
           (val) => users.findIndex(({ userName }) => userName === val) === -1
         )
         .required(),
       password: yup.string().required().min(8),
       branchId: yup
         .number()
-        .test('branchId', 'Must be exactly 5 characters', (val) =>
+        .test("branchId", "Must be exactly 5 characters", (val) =>
           val ? val.toString().length === 5 : false
         )
         .required(),
@@ -44,15 +44,15 @@ const AddUserForm = () => {
     formState: { isValid, isSubmitting },
     reset,
   } = useForm({
-    mode: 'all',
+    mode: "all",
     defaultValues: {
-      userName: '',
-      password: '',
+      userName: "",
+      password: "",
       branchId: 0,
-      firstName: '',
-      middleName: '',
-      lastName: '',
-      position: '',
+      firstName: "",
+      middleName: "",
+      lastName: "",
+      position: "",
     },
     resolver: yupResolver(schema),
   });

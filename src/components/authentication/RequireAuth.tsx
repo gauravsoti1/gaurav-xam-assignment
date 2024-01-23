@@ -1,7 +1,7 @@
-import React from 'react';
-import { Navigate } from 'react-router-dom';
-import { selectIsAuthenticated } from './features/authentication/authenticationSlice';
-import { useAppSelector } from './redux/hooks';
+import React from "react";
+import { Navigate } from "react-router-dom";
+import { useAppSelector } from "../../redux/hooks";
+import { selectIsAuthenticated } from "../../redux/authenticationSlice";
 
 interface Props {
   redirectTo: string;

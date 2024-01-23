@@ -1,21 +1,20 @@
-import React from 'react';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import { useParams } from 'react-router-dom';
-import Button from '@mui/material/Button';
-import AddUserForm from './AddUserForm';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { removeUser, selectUsers } from './usersSlice';
-import { logout } from '../authentication/authenticationSlice';
-
-import styled from 'styled-components';
+import React from "react";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+import { useParams } from "react-router-dom";
+import Button from "@mui/material/Button";
+import AddUserForm from "../components/users/AddUserForm";
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
+import { logout } from "../redux/authenticationSlice";
+import styled from "styled-components";
+import { removeUser, selectUsers } from "../redux/usersSlice";
 
 export default function UserDetail() {
   const { userName } = useParams();
@@ -54,7 +53,7 @@ export default function UserDetail() {
             {users.map((user, index) => (
               <TableRow
                 key={user.userName}
-                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
                   {index}

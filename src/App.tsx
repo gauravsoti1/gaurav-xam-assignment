@@ -1,7 +1,7 @@
-import React from 'react';
-import Container from '@mui/material/Container';
-import Box from '@mui/material/Box';
-import Login from './features/authentication/Login';
+import React from "react";
+import Container from "@mui/material/Container";
+import Box from "@mui/material/Box";
+import Login from "./pages/Login";
 
 export default function App() {
   return (

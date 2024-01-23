@@ -1,8 +1,8 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { UserType } from '../../data/usersData';
-import type { RootState } from '../../redux/store';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { UserType } from "../data/usersData";
+import type { RootState } from "./store";
 
-type UserStateType = Omit<UserType, 'password'>;
+type UserStateType = Omit<UserType, "password">;
 
 export interface AuthenticationStateType {
   isAuthenticated: boolean;
@@ -15,7 +15,7 @@ const initialState: AuthenticationStateType = {
 };
 
 export const authenticationSlice = createSlice({
-  name: 'authentication',
+  name: "authentication",
   initialState,
   reducers: {
     login: (state, action: PayloadAction<UserStateType>) => {
