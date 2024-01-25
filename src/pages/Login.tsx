@@ -18,6 +18,7 @@ import { useEffect } from "react";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import { selectUsers } from "../redux/usersSlice";
+import { Typography } from "@mui/material";
 
 export const validationTextHelper = {
   userName: {
@@ -100,6 +101,15 @@ export default function Login() {
   return (
     <Box sx={{ my: 4 }}>
       <Container maxWidth="sm">
+        <Typography
+          variant="h4"
+          fontWeight="bold"
+          gutterBottom
+          color="primary"
+          align="center"
+        >
+          Login
+        </Typography>
         <form onSubmit={handleSubmit(onSubmit)}>
           <FormContainer>
             <Controller
