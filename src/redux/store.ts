@@ -3,10 +3,12 @@ import { persistStore, persistReducer } from "redux-persist";
 import storageSession from "redux-persist/lib/storage/session";
 import authenticationReducer, {
   AuthenticationStateType,
+  login,
+  logout,
 } from "./authenticationSlice";
 
 import thunk from "redux-thunk";
-import usersReducer from "./usersSlice";
+import usersReducer, { addUser, removeUser } from "./usersSlice";
 import storage from "redux-persist/lib/storage";
 import { UserType } from "../data/usersData";
 
@@ -38,7 +40,10 @@ const rootReducer = combineReducers({
 export const buildStore = () =>
   configureStore({
     reducer: persistReducer(configRootPersistance, rootReducer),
-    devTools: process.env.NODE_ENV !== "production",
+    devTools:
+      process.env.NODE_ENV !== "production"
+        ? { actionCreators: { login, logout, addUser, removeUser } }
+        : false,
     middleware: [thunk],
   });
 

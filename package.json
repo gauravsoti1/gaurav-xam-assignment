@@ -1,5 +1,5 @@
 {
-  "name": "gaurav-xam-assignment",
+  "name": "redux-persist-authentication",
   "version": "5.0.0",
   "private": true,
   "dependencies": {
